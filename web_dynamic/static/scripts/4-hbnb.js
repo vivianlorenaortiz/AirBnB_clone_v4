@@ -47,8 +47,10 @@ $(document).ready(function() {
 	     type: 'POST',
              contentType: 'application/json',
              url: 'http://0.0.0.0:5001/api/v1/places_search/',
-             data: JSON.stringify({ amenities: Object.keys(chechkDictionary)}),
+             data: JSON.stringify({ amenities: (checkDictionary)}),
 	     success: function(data) {
+		 console.log(data)
+		 $(".places").html("")
 		 for (const elem of data.values()) {
                      $('.places').append('<article><div class="title"><h2>' + elem.name +
 					 '</h2><div class="price_by_night">' + elem.price_by_night +
